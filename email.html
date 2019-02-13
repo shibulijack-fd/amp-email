@@ -1,0 +1,218 @@
+<!--
+  AMP4EMAIL is an experimental format.
+  
+  Below is the mininum valid AMP4EMAIL document. Just type away
+  here and the AMP Validator will re-check your document on the fly.
+  -->
+<!doctype html>
+<html ⚡4email>
+  <head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
+    <style amp4email-boilerplate>body{visibility:hidden}</style>
+    <style amp-custom>
+      body {
+      color: #475867;
+      font-size: 14px;
+      font-family: sans-serif;
+      line-height: 20px;
+      padding: 16px;
+      max-width: 800px;
+      -webkit-font-smoothing: antialiased;
+      }
+      a {
+      color: #1155CC;
+      text-decoration: none;
+      }
+      form.amp-form-submit-success .hide-on-submit,
+      form.amp-form-submit-error .hide-on-submit
+      {
+      display: none;
+      }
+      .article-card {
+      margin-top: 8px;
+      }
+      .article-title {
+      padding: 12px;
+      font-size: 18px;
+      color: #2C5CC5;
+      border: 1px solid #EBEEF0;	
+      border-radius: 4px;	
+      background-color: #F8F9FA;
+      }
+      .article-content {
+      padding: 16px;
+        border-left: 1px solid #EBEEF0;
+        border-right: 1px solid #EBEEF0;
+      }
+      .article-footer {
+        border: 1px solid #EBEEF0;	
+        border-radius: 0 0 4px 4px;	
+        background-color: #F8F9FA;
+        padding: 16px;
+      }
+      .article-footer.success {
+        background: #e1f5f1;
+        border-color: #b4e6da;
+      }
+      .article-footer.error {
+        background: #fef1e1;
+        border-color: #fddcb5;
+      }
+      .rating-card {
+        padding: 14px 16px;
+        margin: 24px 0;
+        color: #12344d;
+        border: 1px solid #EBEEF0;	
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+      }
+      .rating-card.success {
+        background: #e1f5f1;
+        border-color: #b4e6da;
+      }
+      .rating-card.error {
+        background: #fef1e1;
+        border-color: #fddcb5;
+      }
+      .rating-card--title {
+      display: inline-block;
+      margin:0;
+      margin-right: 4px;
+      font-size: 16px;
+      }
+      .rating-button {
+      margin-left: 8px;
+      border: 1px solid #CFD7DF;	
+      border-radius: 4px;	
+      background: linear-gradient(180deg, #FFFFFF 0%, #F3F5F7 100%);	
+      box-shadow: 0 1px 0 0 rgba(24,50,71,0.05);
+      padding: 5px 10px;
+      font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <amp-state id="myState">
+      <script type="application/json">
+        {
+          "kb1Value": 0,
+          "kb2Value": 0,
+          "ratingValue": 0
+        }
+      </script>
+    </amp-state>
+    <div>
+      <p>Hello Rohit,</p>
+      <p>Based on your email, we’ve found some relevant support articles which might help with resolving your problem. Please check them out below.</p>
+    </div>
+    <amp-accordion animate>
+      <section class="article-card">
+        <h4 class="article-title">
+          Setting up your knowledge base
+          <span></span>
+        </h4>
+        <div class="article-body">
+          <div class="article-content">
+            <p>Solution Articles or knowledge base posts promote self-help in your 
+              support portal. They should ideally cover all aspects of your product or 
+              service - in the example of an ecommerce store, their knowledge base articles 
+              would probably include payment instructions, shipping information and product 
+              return policies.
+            </p>
+            <p>For better clarity, the Freshdesk knowledge base is categorized into a three-level hierarchy</p>
+            <ul>
+              <li>Categories that hold a group of related content</li>
+              <li>Folders under each category</li>
+              <li>And the specific Solution Articles inside each folder.</li>
+            </ul>
+            <p>At the top level, Categories broadly classify your solutions page into several sections. For example, you could place Shipping, Payments and delivery-related information under the Order Fulfillment category. Another interesting application of this organizational system is when you're providing support across multiple brands or products (more about multi-product support here).
+            </p>
+            <a href="https://support.freshdesk.com/solution/articles/37611-setting-up-your-knowledge-base">Read full article</a>
+          </div>
+          <div class="article-footer" [class]="myState.kb1Value == 1 ? 'article-footer success' : 'article-footer error'">
+            <div [hidden]="myState.kb1Value != 0">
+              <span class="article-card--title">Did this article solve your problem ?</span>
+              <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb1Value: 1, ratingValue: 1}}),ratingParentForm.submit">😄Yes, thanks!</button>
+              <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb1Value: 2, ratingValue: 2}}),ratingParentForm.submit">😕Not really</button>
+            </div>
+            <div hidden [hidden]="myState.kb1Value != 1">
+              Happy we helped you. Please rate us below.
+            </div>
+            <div hidden [hidden]="myState.kb1Value != 2">
+              Sorry this didn't help. Please check out the other articles.
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="article-card">
+        <h4 class="article-title">Customizing your knowledge base branding</h4>
+        <div class="article-body">
+          <div class="article-content">
+            <p>Solution Articles or knowledge base posts promote self-help in your 
+              support portal. They should ideally cover all aspects of your product or 
+              service - in the example of an ecommerce store, their knowledge base articles 
+              would probably include payment instructions, shipping information and product 
+              return policies.
+            </p>
+            <p>For better clarity, the Freshdesk knowledge base is categorized into a three-level hierarchy</p>
+            <ul>
+              <li>Categories that hold a group of related content</li>
+              <li>Folders under each category</li>
+              <li>And the specific Solution Articles inside each folder.</li>
+            </ul>
+            <p>At the top level, Categories broadly classify your solutions page into several sections. For example, you could place Shipping, Payments and delivery-related information under the Order Fulfillment category. Another interesting application of this organizational system is when you're providing support across multiple brands or products (more about multi-product support here).
+            </p>
+            <a href="https://support.freshdesk.com/solution/articles/37611-setting-up-your-knowledge-base">Read full article</a>
+          </div>
+          <div class="article-footer" [class]="myState.kb2Value == 1 ? 'article-footer success' : 'article-footer error'">
+            <div [hidden]="myState.kb2Value != 0">
+              <span class="article-card--title">Did this article solve your problem ?</span>
+              <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb2Value: 1, ratingValue: 1}}),ratingParentForm.submit">😄Yes, thanks!</button>
+              <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb2Value: 2, ratingValue: 2}}),ratingParentForm.submit">😕Not really</button>
+            </div>
+            <div hidden [hidden]="myState.kb2Value != 1">
+              Happy we helped you. Please rate us below.
+            </div>
+            <div hidden [hidden]="myState.kb2Value != 2">
+              Sorry this didn't help. Please check out the other articles.
+            </div>
+          </div>
+        </div>
+      </section>
+    </amp-accordion>
+    <div class="rating-card" [class]="myState.ratingValue == 1 ? 'rating-card success' : 'rating-card error'">
+      <form class="rating-form"
+        id="ratingParentForm"
+        method="post"
+        action-xhr="https://rohitagarwal.app/amp">
+        <h4 class="rating-card--title hide-on-submit">Did we solve your problem?</h4>
+        <input type="hidden"
+          id="ratingValue"
+          name="kb1"
+          [value]="myState.kb1Value">
+        <input type="hidden"
+          id="ratingValue"
+          name="kb2"
+          [value]="myState.kb2Value">
+        <input type="hidden"
+          id="ratingValue"
+          name="rating"
+          [value]="myState.ratingValue">
+        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 1}}),ratingParentForm.submit">😄Yes, thanks!</button>
+        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 2}}),ratingParentForm.submit">😕Not really</button>
+        <div submit-success>
+          <h3>Don't worry we're on it.</h3>
+          <p>One of our support agents will reach out to you shortly.</p>
+        </div>
+        <div submit-error>
+          <h3>Don't worry we're on it.</h3>
+          <p>One of our support agents will reach out to you shortly.</p>
+        </div>
+      </form>
+    </div>
+    <p>- Freshdesk support</p>
+    <p>Check you ticket status - <a href="https://support.freshdesk.com/helpdesk/tickets/172">https://support.freshdesk.com/helpdesk/tickets/172</a></p>
+  </body>
+</html>
