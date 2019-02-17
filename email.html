@@ -12,49 +12,64 @@
     <style amp4email-boilerplate>body{visibility:hidden}</style>
     <style amp-custom>
       body {
-      color: #475867;
-      font-size: 14px;
-      padding: 16px;
-      font-family: sans-serif;
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.5;
-      max-width: 720px;
+        color: #475867;
+        font-size: 14px;
+        padding: 16px;
+        font-family: sans-serif;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.5;
+        max-width: 720px;
       }
+
       a {
-      color: #1155CC;
-      text-decoration: none;
+        color: #1155CC;
+        text-decoration: none;
       }
+
       form.amp-form-submit-success .hide-on-submit,
-      form.amp-form-submit-error .hide-on-submit
-      {
-      display: none;
+      form.amp-form-submit-error .hide-on-submit {
+        display: none;
       }
+
       .article-card {
-      margin-top: 8px;
+        margin-top: 8px;
       }
-      .article-title {
-      padding: 8px;
-      font-size: 18px;
-      color: #2C5CC5;
-      border: 1px solid #EBEEF0;	
-      border-radius: 4px;	
-      background-color: #F8F9FA;
+
+      .article-header {
+        padding: 8px;
+        font-size: 18px;
+        color: #2C5CC5;
+        border: 1px solid #EBEEF0;  
+        border-radius: 4px; 
+        background-color: #F8F9FA;
       }
       
-      .collapse-arrow {
-      	width: 32px;
+      .article-header:hover,
+      .article-card[expanded] .article-header {
+        background-color: #EBEEF0;
+        color: #12344D;
+        transition: .3s ease;
+      }
+      
+      .article-title {
+        font-weight: 600;
+        margin-top: 2px;
+        display: inline-block;
+      }
+      
+      .collapse-arrow-container {
+        width: 32px;
         height: 32px;
         display: inline-block;
         float: right;
-        border: 1px solid #DADFE3;	
-        border-radius: 4px;	
-        background-color: #FFFFFF;	
-      	box-shadow: 0 1px 0 0 rgba(24,50,71,0.05);
+        border: 1px solid #DADFE3;  
+        border-radius: 4px; 
+        background-color: #FFFFFF;  
+        box-shadow: 0 1px 0 0 rgba(24,50,71,0.05);
         position: relative;
       }
       
-      .collapse-arrow::before {
-		content: '';
+      .collapse-arrow {
         width: 9px;
         height: 9px;
         background-color: #fff;
@@ -67,8 +82,8 @@
         transition: .3s ease;
       }
       
-      .article-card[expanded] .collapse-arrow::before {
-      	transform: rotate(45deg);
+      .article-card[expanded] .collapse-arrow {
+        transform: rotate(45deg);
         transition: .3s ease;
       }
       
@@ -78,27 +93,27 @@
         border-right: 1px solid #EBEEF0;
       }
       .article-footer {
-      border: 1px solid #EBEEF0;	
-      border-radius: 0 0 4px 4px;	
+      border: 1px solid #EBEEF0;  
+      border-radius: 0 0 4px 4px; 
       background-color: #F8F9FA;
       padding: 16px;
       }
       .article-footer.success {
-		border: 1px solid #B4E5DA;	
-		border-radius: 0 0 4px 4px;	
-		background-color: #E0F5F1;
+    border: 1px solid #B4E5DA;  
+    border-radius: 0 0 4px 4px; 
+    background-color: #E0F5F1;
       }
 
       .article-footer.failure {
-      	border: 1px solid #FDDBB5;	
-      	border-radius: 0 0 4px 4px;	
-      	background-color: #FEF1E1;
+        border: 1px solid #FDDBB5;  
+        border-radius: 0 0 4px 4px; 
+        background-color: #FEF1E1;
       }
       .rating-card {
       padding: 14px 16px;
       margin: 24px 0;
       color: #12344d;
-      border: 1px solid #EBEEF0;	
+      border: 1px solid #EBEEF0;  
       border-radius: 4px;
       align-items: center;
       }
@@ -119,9 +134,9 @@
       }
       .rating-button {
         margin-left: 8px;
-        border: 1px solid #CFD7DF;	
-        border-radius: 4px;	
-        background: linear-gradient(180deg, #FFFFFF 0%, #F3F5F7 100%);	
+        border: 1px solid #CFD7DF;  
+        border-radius: 4px; 
+        background: linear-gradient(180deg, #FFFFFF 0%, #F3F5F7 100%);  
         box-shadow: 0 1px 0 0 rgba(24,50,71,0.05);
         padding: 5px 10px;
         font-size: 13px;
@@ -130,26 +145,28 @@
       .rating-widget {
       }
       
-      .rating-star:hover {
-      	background-image: url('https://image.flaticon.com/icons/svg/291/291205.svg');
+      .rating-star:hover {  
+        cursor: pointer;
+        background-image: url('https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/19039002290/original/rbsYedZ_mPkiqpjj0mX1fIQCyKI52pSWyA.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ2JSYZ7O3I4JO6DA%2F20190217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190217T121948Z&X-Amz-Expires=300&X-Amz-Signature=d57f3e5228a86e76d02dcdab78292e15f3dbf2cf8581b52f64ccadfa9249d020&X-Amz-SignedHeaders=Host');
       }
       
 
       
       .rating-star {
-        width: 20px;
+        width: 20px;  
         height: 20px;
         float: right;
         margin-right: 8px;
+        background-size: contain;
         display: inline-block;
-      	background-image: url('https://image.flaticon.com/icons/svg/149/149222.svg');
+        background-image: url('https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/19039002291/original/KlKobv51Vxg_HLbCeo5_P_rCGqRBO3XNzw.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ2JSYZ7O3I4JO6DA%2F20190217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190217T121946Z&X-Amz-Expires=300&X-Amz-Signature=125c00c6db0dc3a84fe652de4c0c7df345b9b05d601b03453518f56a593583b9&X-Amz-SignedHeaders=Host');
       }
-      .rating-widget > .rating-star:hover ~ .rating-star {
-      	background-image: url('https://image.flaticon.com/icons/svg/291/291205.svg');
+      .rating-widget > .rating-star:hover ~ .rating-star {  
+        background-image: url('https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/19039002290/original/rbsYedZ_mPkiqpjj0mX1fIQCyKI52pSWyA.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ2JSYZ7O3I4JO6DA%2F20190217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190217T121948Z&X-Amz-Expires=300&X-Amz-Signature=d57f3e5228a86e76d02dcdab78292e15f3dbf2cf8581b52f64ccadfa9249d020&X-Amz-SignedHeaders=Host');
       }
       
       .selected {
-      	background-image: url('https://image.flaticon.com/icons/svg/291/291205.svg');
+        background-image: url('https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/19039002290/original/rbsYedZ_mPkiqpjj0mX1fIQCyKI52pSWyA.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ2JSYZ7O3I4JO6DA%2F20190217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190217T121948Z&X-Amz-Expires=300&X-Amz-Signature=d57f3e5228a86e76d02dcdab78292e15f3dbf2cf8581b52f64ccadfa9249d020&X-Amz-SignedHeaders=Host');
       }
     </style>
   </head>
@@ -170,10 +187,13 @@
     </div>
     <amp-accordion animate expand-single-section>
       <section class="article-card">
-        <h4 class="article-title">
-          Setting up your knowledge base
-          <span class="collapse-arrow"></span>
-        </h4>
+        <header class="article-header">
+          <span class="article-title">Setting up your knowledge base</span>
+          <span class="collapse-arrow-container">
+            <span class="collapse-arrow"></span>
+          </span>
+          
+        </header>
         <div class="article-body">
           <div class="article-content">
             <p>Solution Articles or knowledge base posts promote self-help in your 
@@ -199,19 +219,22 @@
               <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb1Value: 2, ratingValue: myState.kb2Value == 2 ? 2 : myState.ratingValue }}),ratingParentForm.submit">😕Not really</button>
             </div>
             <div class="article-footer success" hidden [hidden]="myState.kb1Value != 1">
-				<b>Happy we helped you! Please rate us below.</b>
+        <b>Happy we helped you! Please rate us below.</b>
             </div>
             <div class="article-footer failure" hidden [hidden]="myState.kb1Value != 2">
-				<b>Sorry this didn’t help. Please do check out the other articles.</b>
+        <b>Sorry this didn’t help. Please do check out the other articles.</b>
             </div>
           </div>
         </div>
       </section>
       <section class="article-card">
-        <h4 class="article-title">
-          Customizing your knowledge base branding
-          <span class="collapse-arrow"></span>
-        </h4>
+        <header class="article-header">
+          <span class="article-title">Customizing your knowledge base branding</span>
+          <span class="collapse-arrow-container">
+            <span class="collapse-arrow"></span>
+          </span>
+          
+        </header>
         <div class="article-body">
           <div class="article-content">
             <p>Solution Articles or knowledge base posts promote self-help in your 
@@ -237,10 +260,10 @@
               <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb2Value: 2, ratingValue: myState.kb1Value == 2 ? 2 : myState.ratingValue }}),ratingParentForm.submit">😕Not really</button>
             </div>
             <div class="article-footer success" hidden [hidden]="myState.kb2Value != 1">
-				<b>Happy we helped you! Please rate us below.</b>
+        <b>Happy we helped you! Please rate us below.</b>
             </div>
             <div class="article-footer failure" hidden [hidden]="myState.kb2Value != 2">
-				<b>Sorry this didn’t help. Please do check out the other articles.</b>
+        <b>Sorry this didn’t help. Please do check out the other articles.</b>
             </div>
           </div>
         </div>
@@ -266,8 +289,8 @@
 
     <div class="rating-card" [hidden]="myState.ratingValue != 0" >
         <h4 class="rating-card--title hide-on-submit">Did we solve your problem?</h4>
-      	<button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 1}}),ratingParentForm.submit">😄Yes, thanks!</button>
-    	<button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 2}}),ratingParentForm.submit">😕Not really</button>
+        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 1}}),ratingParentForm.submit">😄Yes, thanks!</button>
+      <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 2}}),ratingParentForm.submit">😕Not really</button>
     </div>     
     <div  hidden class="rating-card success" [hidden]="myState.ratingValue != 1">
       <div>
