@@ -234,12 +234,12 @@
                     <div class="article-footer" [hidden]="myState.kb1Value != 0">
                         <span class="article-card--title">Did this article solve your problem ?</span>
                         <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb1Value: 1, ratingValue: 1}}),ratingParentForm.submit">😄Yes, thanks!</button>
-                        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb1Value: 2, ratingValue: myState.kb2Value == 2 ? 2 : myState.ratingValue }}),ratingParentForm.submit">😕Not really</button>
+                        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb1Value: -1, ratingValue: myState.kb2Value == -1 ? -1 : myState.ratingValue }}),ratingParentForm.submit">😕Not really</button>
                     </div>
                     <div class="article-footer success" hidden [hidden]="myState.kb1Value != 1">
                         <b>Happy we helped you! Please rate us below.</b>
                     </div>
-                    <div class="article-footer failure" hidden [hidden]="myState.kb1Value != 2">
+                    <div class="article-footer failure" hidden [hidden]="myState.kb1Value != -1">
                         <b>Sorry this didn’t help. Please do check out the other articles.</b>
                     </div>
                 </div>
@@ -273,12 +273,12 @@
                     <div class="article-footer" [hidden]="myState.kb2Value != 0">
                         <span class="article-card--title">Did this article solve your problem ?</span>
                         <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb2Value: 1, ratingValue: 1}}),ratingParentForm.submit">😄Yes, thanks!</button>
-                        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb2Value: 2, ratingValue: myState.kb1Value == 2 ? 2 : myState.ratingValue }}),ratingParentForm.submit">😕Not really</button>
+                        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {kb2Value: -1, ratingValue: myState.kb1Value == -1 ? -1 : myState.ratingValue }}),ratingParentForm.submit">😕Not really</button>
                     </div>
                     <div class="article-footer success" hidden [hidden]="myState.kb2Value != 1">
                         <b>Happy we helped you! Please rate us below.</b>
                     </div>
-                    <div class="article-footer failure" hidden [hidden]="myState.kb2Value != 2">
+                    <div class="article-footer failure" hidden [hidden]="myState.kb2Value != -1">
                         <b>Sorry this didn’t help. Please do check out the other articles.</b>
                     </div>
                 </div>
@@ -288,30 +288,30 @@
     <form class="rating-form" id="ratingParentForm" method="post" action-xhr="https://rohitagarwal.app/amp">
         <input type="hidden" id="ratingValue" name="kb1" [value]="myState.kb1Value">
         <input type="hidden" id="ratingValue" name="kb2" [value]="myState.kb2Value">
-        <input type="hidden" id="ratingValue" name="rating" [value]="myState.ratingValue">
+        <input type="hidden" id="ratingValue" name="rating" [value]="myState.csatRating">
     </form>
 
     <div class="rating-card" [hidden]="myState.ratingValue != 0">
         <h4 class="rating-card--title hide-on-submit">Did we solve your problem?</h4>
-        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 1}}),ratingParentForm.submit">😄Yes, thanks!</button>
-        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 2}}),ratingParentForm.submit">😕Not really</button>
+        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 1}})">😄Yes, thanks!</button>
+        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: -1}}),ratingParentForm.submit">😕Not really</button>
     </div>
     <div hidden class="rating-card success" [hidden]="myState.ratingValue != 1">
         <div class="rating-container">
             <h4 class="rating-text">Great! Please rate your support experience</h4>
             <div class="rating-widget">
                 <span class="rating-star" [class]="myState.csatRating >= 5 ? 'rating-star selected' : 'rating-star'" on="tap:AMP.setState({myState: {csatRating: 5}}),ratingParentForm.submit" role="button" tabindex=0></span>
-                <span class="rating-star" [class]="myState.csatRating >= 4 ? ' rating-star selected' : 'rating-star'" on="tap:AMP.setState({myState: {csatRating: 4}}),ratingParentForm.submit" role="button" tabindex=0></span>
+                <span class="rating-star" [class]="myState.csatRating >= 4 ? 'rating-star selected' : 'rating-star'" on="tap:AMP.setState({myState: {csatRating: 4}}),ratingParentForm.submit" role="button" tabindex=0></span>
                 <span class="rating-star" [class]="myState.csatRating >= 3 ? 'rating-star selected' : 'rating-star'" on="tap:AMP.setState({myState: {csatRating: 3}}),ratingParentForm.submit" role="button" tabindex=0></span>
                 <span class="rating-star" [class]="myState.csatRating >= 2 ? 'rating-star selected' : 'rating-star'" on="tap:AMP.setState({myState: {csatRating: 2}}),ratingParentForm.submit" role="button" tabindex=0></span>
                 <span class="rating-star" [class]="myState.csatRating >= 1 ? 'rating-star selected' : 'rating-star'" on="tap:AMP.setState({myState: {csatRating: 1}}),ratingParentForm.submit" role="button" tabindex=0></span>
             </div>
         </div>
         <p class="rating-subtext">We’ve marked your ticket as resolved.</p>
-        <a class="help-link" on="tap:AMP.setState({myState: {ratingValue: 2}}),ratingParentForm.submit" role="button" tabindex=0><span class="i-article"></span>I need more help</a>
+        <a class="help-link" on="tap:AMP.setState({myState: {ratingValue: -1, csatRating: -1}}),ratingParentForm.submit" role="button" tabindex=0><span class="i-article"></span>I need more help</a>
 
     </div>
-    <div hidden class="rating-card error" [hidden]="myState.ratingValue != 2">
+    <div hidden class="rating-card error" [hidden]="myState.ratingValue != -1">
         <h4>Don't worry, we're on it</h4>
         <p>One of our support agents will reach out to you shortly.</p>
     </div>
