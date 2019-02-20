@@ -286,14 +286,15 @@
         </section>
     </amp-accordion>
     <form class="rating-form" id="ratingParentForm" method="post" action-xhr="https://rohitagarwal.app/amp">
-        <input type="hidden" id="ratingValue" name="kb1" [value]="myState.kb1Value">
-        <input type="hidden" id="ratingValue" name="kb2" [value]="myState.kb2Value">
-        <input type="hidden" id="ratingValue" name="rating" [value]="myState.csatRating">
+        <input type="hidden" id="kb1" name="kb1" [value]="myState.kb1Value">
+        <input type="hidden" id="kb2" name="kb2" [value]="myState.kb2Value">
+        <input type="hidden" id="status" name="status" [value]="myState.ratingValue">
+        <input type="hidden" id="rating" name="rating" [value]="myState.csatRating">
     </form>
 
     <div class="rating-card" [hidden]="myState.ratingValue != 0">
         <h4 class="rating-card--title hide-on-submit">Did we solve your problem?</h4>
-        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 1}})">😄Yes, thanks!</button>
+        <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 1}}),ratingParentForm.submit">😄Yes, thanks!</button>
         <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: -1}}),ratingParentForm.submit">😕Not really</button>
     </div>
     <div hidden class="rating-card success" [hidden]="myState.ratingValue != 1">
@@ -308,7 +309,7 @@
             </div>
         </div>
         <p class="rating-subtext">We’ve marked your ticket as resolved.</p>
-        <a class="help-link" on="tap:AMP.setState({myState: {ratingValue: -1, csatRating: -1}}),ratingParentForm.submit" role="button" tabindex=0><span class="i-article"></span>I need more help</a>
+        <a class="help-link" on="tap:AMP.setState({myState: {ratingValue: -1, csatRating: 0}}),ratingParentForm.submit" role="button" tabindex=0><span class="i-article"></span>I need more help</a>
 
     </div>
     <div hidden class="rating-card error" [hidden]="myState.ratingValue != -1">
