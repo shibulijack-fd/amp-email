@@ -11,163 +11,185 @@
     <script async src="https://cdn.ampproject.org/v0.js"></script><script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script><script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script><script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>
     <style amp4email-boilerplate>body{visibility:hidden}</style>
     <style amp-custom>
-      body {
-        color: #475867;
-        font-size: 14px;
-        padding: 16px;
-        font-family: sans-serif;
-        -webkit-font-smoothing: antialiased;
-        line-height: 1.5;
-        max-width: 720px;
-      }
-
-      a {
-        color: #1155CC;
-        text-decoration: none;
-      }
-
-      form.amp-form-submit-success .hide-on-submit,
-      form.amp-form-submit-error .hide-on-submit {
-        display: none;
-      }
-
-      .article-card {
-        margin-top: 8px;
-      }
-
-      .article-header {
-        padding: 8px;
-        font-size: 18px;
-        color: #2C5CC5;
-        border: 1px solid #EBEEF0;  
-        border-radius: 4px; 
-        background-color: #F8F9FA;
-      }
-      
-      .article-header:hover,
-      .article-card[expanded] .article-header {
-        background-color: #EBEEF0;
-        color: #12344D;
-        transition: .3s ease;
-      }
-      
-      .article-title {
-        font-weight: 600;
-        margin-top: 2px;
-        display: inline-block;
-      }
-      
-      .collapse-arrow-container {
-        width: 32px;
-        height: 32px;
-        display: inline-block;
-        float: right;
-        border: 1px solid #DADFE3;  
-        border-radius: 4px; 
-        background-color: #FFFFFF;  
-        box-shadow: 0 1px 0 0 rgba(24,50,71,0.05);
-        position: relative;
-      }
-      
-      .collapse-arrow {
-        width: 9px;
-        height: 9px;
-        background-color: #fff;
-        position: absolute;
-        border-right: 2px solid #12344D;
-        border-bottom: 2px solid #12344D;
-        transform: rotate(-45deg);
-        top: 10px;
-        left: 10px;
-        transition: .3s ease;
-      }
-      
-      .article-card[expanded] .collapse-arrow {
-        transform: rotate(45deg);
-        transition: .3s ease;
-      }
-      
-      .article-content {
+          body {
+      color: #475867;
+      font-size: 14px;
       padding: 16px;
-        border-left: 1px solid #EBEEF0;
-        border-right: 1px solid #EBEEF0;
-      }
-      .article-footer {
-      border: 1px solid #EBEEF0;  
-      border-radius: 0 0 4px 4px; 
+      font-family: sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      max-width: 720px;
+    }
+
+    a {
+      color: #2C5CC5;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    form.amp-form-submit-success .hide-on-submit,
+    form.amp-form-submit-error .hide-on-submit {
+      display: none;
+    }
+
+    .article-card {
+      margin-top: 8px;
+    }
+
+    .article-header {
+      padding: 8px;
+      font-size: 18px;
+      color: #2C5CC5;
+      border: 1px solid #EBEEF0;
+      border-radius: 4px;
+      background-color: #F8F9FA;
+    }
+
+    .article-header:hover,
+    .article-card[expanded] .article-header {
+      background-color: #EBEEF0;
+      color: #12344D;
+      transition: 0.3s ease;
+    }
+
+    .article-title {
+      font-weight: 600;
+      margin-top: 2px;
+      display: inline-block;
+    }
+
+    .collapse-arrow-container {
+      width: 32px;
+      height: 32px;
+      display: inline-block;
+      float: right;
+      border: 1px solid #DADFE3;
+      border-radius: 4px;
+      background-color: #fff;
+      box-shadow: 0 1px 0 0 rgba(24, 50, 71, 0.05);
+      position: relative;
+    }
+
+    .collapse-arrow {
+      width: 9px;
+      height: 9px;
+      background-color: #fff;
+      position: absolute;
+      border-right: 2px solid #12344D;
+      border-bottom: 2px solid #12344D;
+      transform: rotate(-45deg);
+      top: 10px;
+      left: 10px;
+      transition: 0.3s ease;
+    }
+
+    .article-card[expanded] .collapse-arrow {
+      transform: rotate(45deg);
+      transition: .3s ease;
+    }
+
+    .article-content {
+      padding: 16px;
+      border-left: 1px solid #EBEEF0;
+      border-right: 1px solid #EBEEF0;
+    }
+
+    .article-footer {
+      border: 1px solid #EBEEF0;
+      border-radius: 0 0 4px 4px;
       background-color: #F8F9FA;
       padding: 16px;
-      }
-      .article-footer.success {
-    border: 1px solid #B4E5DA;  
-    border-radius: 0 0 4px 4px; 
-    background-color: #E0F5F1;
-      }
+    }
 
-      .article-footer.failure {
-        border: 1px solid #FDDBB5;  
-        border-radius: 0 0 4px 4px; 
-        background-color: #FEF1E1;
-      }
-      .rating-card {
-      padding: 14px 16px;
+    .article-footer.success {
+      border: 1px solid #B4E5DA;
+      border-radius: 0 0 4px 4px;
+      background-color: #E0F5F1;
+    }
+
+    .article-footer.failure {
+      border: 1px solid #FDDBB5;
+      border-radius: 0 0 4px 4px;
+      background-color: #FEF1E1;
+    }
+
+    .rating-card {
+      padding: 16px;
       margin: 24px 0;
       color: #12344d;
-      border: 1px solid #EBEEF0;  
+      border: 1px solid #EBEEF0;
       border-radius: 4px;
       align-items: center;
-      }
-      
-      .rating-card.success {
-        background: #e1f5f1;
-        border-color: #b4e6da;
-      }
-      .rating-card.error {
-        background: #fef1e1;
-        border-color: #fddcb5;
-      }
-      .rating-card--title {
+    }
+
+    .rating-card.success {
+      background: #e1f5f1;
+      border-color: #b4e6da;
+    }
+
+    .rating-card.error {
+      background: #fef1e1;
+      border-color: #fddcb5;
+    }
+
+    .rating-card--title {
       display: inline-block;
-      margin:0;
+      margin: 0;
       margin-right: 4px;
       font-size: 16px;
-      }
-      .rating-button {
-        margin-left: 8px;
-        border: 1px solid #CFD7DF;  
-        border-radius: 4px; 
-        background: linear-gradient(180deg, #FFFFFF 0%, #F3F5F7 100%);  
-        box-shadow: 0 1px 0 0 rgba(24,50,71,0.05);
-        padding: 5px 10px;
-        font-size: 13px;
-      }  
-      
-      .rating-widget {
-      }
-      
-      .rating-star:hover {  
-        cursor: pointer;
-        background-image: url('https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/19039002290/original/rbsYedZ_mPkiqpjj0mX1fIQCyKI52pSWyA.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ2JSYZ7O3I4JO6DA%2F20190217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190217T121948Z&X-Amz-Expires=300&X-Amz-Signature=d57f3e5228a86e76d02dcdab78292e15f3dbf2cf8581b52f64ccadfa9249d020&X-Amz-SignedHeaders=Host');
-      }
-      
+    }
 
-      
-      .rating-star {
-        width: 20px;  
-        height: 20px;
-        float: right;
-        margin-right: 8px;
-        background-size: contain;
-        display: inline-block;
-        background-image: url('https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/19039002291/original/KlKobv51Vxg_HLbCeo5_P_rCGqRBO3XNzw.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ2JSYZ7O3I4JO6DA%2F20190217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190217T121946Z&X-Amz-Expires=300&X-Amz-Signature=125c00c6db0dc3a84fe652de4c0c7df345b9b05d601b03453518f56a593583b9&X-Amz-SignedHeaders=Host');
-      }
-      .rating-widget > .rating-star:hover ~ .rating-star {  
-        background-image: url('https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/19039002290/original/rbsYedZ_mPkiqpjj0mX1fIQCyKI52pSWyA.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ2JSYZ7O3I4JO6DA%2F20190217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190217T121948Z&X-Amz-Expires=300&X-Amz-Signature=d57f3e5228a86e76d02dcdab78292e15f3dbf2cf8581b52f64ccadfa9249d020&X-Amz-SignedHeaders=Host');
-      }
-      
-      .selected {
-        background-image: url('https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/19039002290/original/rbsYedZ_mPkiqpjj0mX1fIQCyKI52pSWyA.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJ2JSYZ7O3I4JO6DA%2F20190217%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20190217T121948Z&X-Amz-Expires=300&X-Amz-Signature=d57f3e5228a86e76d02dcdab78292e15f3dbf2cf8581b52f64ccadfa9249d020&X-Amz-SignedHeaders=Host');
-      }
+    .rating-button {
+      margin-left: 8px;
+      border: 1px solid #CFD7DF;
+      border-radius: 4px;
+      background: linear-gradient(180deg, #fff 0%, #F3F5F7 100%);
+      box-shadow: 0 1px 0 0 rgba(24, 50, 71, 0.05);
+      padding: 5px 10px;
+      font-size: 13px;
+    }
+
+    .rating-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .rating-widget {
+      margin-left: 12px;
+    }
+
+    .rating-star:hover {
+      cursor: pointer;
+      background-image: url('https://image.flaticon.com/icons/svg/148/148839.svg');
+    }
+
+    .rating-text {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+
+    .rating-subtext {
+      margin: 8px 0;
+    }
+
+    .rating-star {
+      width: 20px;
+      height: 20px;
+      float: right;
+      margin-right: 8px;
+      background-size: contain;
+      display: inline-block;
+      background-image: url('https://image.flaticon.com/icons/svg/149/149220.svg');
+    }
+
+    .rating-widget > .rating-star:hover ~ .rating-star {
+      background-image: url('https://image.flaticon.com/icons/svg/148/148839.svg');
+    }
+
+    .selected {
+      background-image: url('https://image.flaticon.com/icons/svg/148/148839.svg');
+    }
+
     </style>
   </head>
   <body>  
@@ -293,8 +315,8 @@
       <button type="button" class="rating-button hide-on-submit" on="tap:AMP.setState({myState: {ratingValue: 2}}),ratingParentForm.submit">😕Not really</button>
     </div>     
     <div  hidden class="rating-card success" [hidden]="myState.ratingValue != 1">
-      <div>
-        <h4>Great! Please rate your support experience</h4>
+      <div class="rating-container">
+        <h4 class="rating-text">Great! Please rate your support experience</h4>
         <div class="rating-widget">
           <span class="rating-star" [class]="myState.csatRating >= 5 ? 'rating-star selected' : 'rating-star'"  on="tap:AMP.setState({myState: {csatRating: 5}}),ratingParentForm.submit" role="button" tabindex=0></span>      
           <span class="rating-star" [class]="myState.csatRating >= 4 ? ' rating-star selected' : 'rating-star'" on="tap:AMP.setState({myState: {csatRating: 4}}),ratingParentForm.submit" role="button" tabindex=0></span>      
@@ -303,8 +325,8 @@
           <span class="rating-star" [class]="myState.csatRating >= 1 ? 'rating-star selected' : 'rating-star'" on="tap:AMP.setState({myState: {csatRating: 1}}),ratingParentForm.submit" role="button" tabindex=0></span>      
         </div>
       </div>
-      <p>We’ve marked your ticket as resolved.</p>  
-      <a class="help-link">Need more help</a>
+      <p class="rating-subtext">We’ve marked your ticket as resolved.</p>  
+      <a class="help-link" on="tap:AMP.setState({myState: {ratingValue: 2}}),ratingParentForm.submit" role="button" tabindex=0>I need more help</a>
       
     </div>
     <div hidden class="rating-card error" [hidden]="myState.ratingValue != 2">
