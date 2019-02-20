@@ -71,18 +71,6 @@
       box-shadow: 0 1px 0 0 rgba(24, 50, 71, 0.05);
       position: relative;
     }
-    .collapse-arrow {
-      width: 9px;
-      height: 9px;
-      background-color: #fff;
-      position: absolute;
-      border-right: 2px solid #12344D;
-      border-bottom: 2px solid #12344D;
-      transform: rotate(-45deg);
-      top: 10px;
-      left: 10px;
-      transition: 0.3s ease;
-    }
     .article-card[expanded] .collapse-arrow {
       transform: rotate(45deg);
       transition: .3s ease;
@@ -173,19 +161,28 @@
       cursor: pointer;
     }
     .i-open,
+    .i-add,
     .i-article {
-    display: inline-block;
-    vertical-align: middle;
-    background-image: url('https://raw.githubusercontent.com/shibulijack-fd/amp-email/master/css_sprites.png');
-    width: 20px;
-    height: 20px;
-    background-size: 110px;
+      display: inline-block;
+      vertical-align: middle;
+      background-image: url('https://raw.githubusercontent.com/shibulijack-fd/amp-email/master/css_sprites.png');
+      width: 20px;
+      height: 20px;
+      background-size: 110px;
     }
     .i-open {
       background-position: -48px;
     }
     .i-article {
       background-position: -28px;
+    }
+    .i-add {
+      background-position: -165px 0px;
+      background-size: 170px;
+      width: 100%;
+    }
+    .article-card[expanded] .i-add {
+      background-position: -188px 5px;
     }
     </style>
 </head>
@@ -210,7 +207,7 @@
             <header class="article-header">
                 <span class="article-title">Setting up your knowledge base</span>
                 <span class="collapse-arrow-container">
-            <span class="collapse-arrow"></span>
+                  <span class="i-add"></span>
                 </span>
 
             </header>
@@ -249,7 +246,7 @@
             <header class="article-header">
                 <span class="article-title">Customizing your knowledge base branding</span>
                 <span class="collapse-arrow-container">
-            <span class="collapse-arrow"></span>
+                  <span class="i-add"></span>
                 </span>
 
             </header>
